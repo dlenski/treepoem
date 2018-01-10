@@ -70,7 +70,10 @@ standard PIL ``Image.save()``:
    ... )
    >>> image.save('barcode.png')
 
-
+If your barcode image is monochrome, with no additional text or coloring,
+converting the ``Image`` object to monochrome will likely save space, e.g.
+``image.convert('1').save('barcode.png')``.
+   
 ``barcode_types``
 -----------------
 
