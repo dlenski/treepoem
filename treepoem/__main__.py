@@ -1,7 +1,6 @@
 # -*- encoding:utf-8 -*-
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-import os
 import argparse
 import sys
 from textwrap import fill
@@ -9,8 +8,11 @@ from textwrap import fill
 from . import generate_barcode
 from .data import barcode_types
 
-supported_barcode_types = ('Supported barcode types are:\n'
-    + fill(', '.join(sorted(barcode_types)), initial_indent='    ', subsequent_indent='    '))
+supported_barcode_types = (
+    'Supported barcode types are:\n'
+    + fill(', '.join(sorted(barcode_types)), initial_indent='    ', subsequent_indent='    ')
+)
+
 
 def main():
     p = argparse.ArgumentParser(epilog=supported_barcode_types)
