@@ -1,13 +1,21 @@
+sudo: false
+dist: trusty
+
 notifications:
   email: false
 
-sudo: false
-
 language: python
-python: '3.6'
+python:
+  - '2.7'
+  - '3.5'
+  - '3.6'
+
 cache: pip
 
 install:
+  - sudo apt-get install ghostscript
   - pip install tox
+
 script:
+  - python setup.py build
   - tox
