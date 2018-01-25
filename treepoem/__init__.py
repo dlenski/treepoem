@@ -134,9 +134,11 @@ def _format_code(barcode_type, data, options):
     )
 
 
-def generate_barcode(barcode_type, data, options):
+def generate_barcode(barcode_type, data, options=None):
     if barcode_type not in barcode_types:
         raise NotImplementedError('unsupported barcode type {!r}'.format(barcode_type))
+    if options is None:
+        options = {}
     code = _format_code(barcode_type, data, options)
     bbox_lines = _get_bbox(code)
     full_code = EPS_TEMPLATE.format(bbox=bbox_lines, bwipp=BWIPP, code=code)
