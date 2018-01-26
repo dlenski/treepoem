@@ -5,6 +5,7 @@ History
 -------
 
 .. Insert new release notes below this line
+
 * Add a ``treepoem`` CLI
 
 1.3.2 (2017-10-22)

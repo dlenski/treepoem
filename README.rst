@@ -92,6 +92,7 @@ The library is tested with these specific, common types:
 
 * ``code39`` - `Code 39`_
 
+----------------------
 Command-line interface
 ----------------------
 
@@ -102,28 +103,10 @@ of error correction (see `QR Code Options`_):
 
 .. code-block:: sh
 
-   $ treepoem -o barcode.png -t qrcode "This is a test" eclevel=H
-   $ treepoem -o barcode.png -t qrcode "This is a test" eclevel=L
+   $ treepoem -o barcode1.png -t qrcode "This is a test" eclevel=H
+   $ treepoem -o barcode2.png -t qrcode "This is a test" eclevel=L
 
-Complete usage is shown with ``treepoem --help``:
-
-.. code-block:: sh
-
-   $ treepoem --help
-   usage: treepoem [-h] [-t TYPE] [-f FORMAT] [-o OUTPUT]
-                   data [options [options ...]]
-
-   positional arguments:
-     data                  Barcode data
-     options               List of BWIPP options (e.g. width=1.5)
-
-   optional arguments:
-     -h, --help            show this help message and exit
-     -t TYPE, --type TYPE  Barcode type (default qrcode)
-     -f FORMAT, --format FORMAT
-                           Output format (default is based on file extension)
-     -o OUTPUT, --output OUTPUT
-                           Output file (default is stdout)
+Complete usage instructions are shown with ``treepoem --help``.
 
 --------------------------------
 What's so clever about the name?
