@@ -17,7 +17,7 @@ supported_barcode_types = (
 if sys.version_info < (3, 0):
     stdout_binary = sys.stdout
 else:
-    stdout_binary = getattr(sys.stdout, 'buffer')
+    stdout_binary = sys.stdout.buffer
 
 parser = argparse.ArgumentParser(epilog=supported_barcode_types)
 parser.add_argument('-t', '--type', default='qrcode', help='Barcode type (default %(default)s)')
@@ -34,8 +34,7 @@ def main():
         parser.error('Barcode type %r is not supported. %s' % (args.type, supported_barcode_types))
 
     # PIL needs an explicit format when it doesn't have a filename to guess from
-    if args.output == stdout_binary:
-        if args.format is None:
+    if args.output == stdout_binary and args.format is None:
             args.format = 'xbm'
 
     image = generate_barcode(args.type, args.data, dict(args.options))
