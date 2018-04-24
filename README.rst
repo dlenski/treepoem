@@ -43,8 +43,8 @@ be called ``ghostscript`` too.
 API
 ---
 
-``generate_barcode(barcode_type, data, options)``
--------------------------------------------------
+``generate_barcode(barcode_type, data, options=None)``
+------------------------------------------------------
 
 Generates a barcode and returns it as a PIL image file object (specifically, a
 ``PIL.EpsImagePlugin.EpsImageFile``).
@@ -66,11 +66,13 @@ standard PIL ``Image.save()``:
    >>> image = treepoem.generate_barcode(
    ...     barcode_type='qrcode',  # One of the BWIPP supported codes.
    ...     data='barcode payload',
-   ...     options={},
    ... )
-   >>> image.save('barcode.png')
+   >>> image.convert('1').save('barcode.png')
 
-
+If your barcode image is monochrome, with no additional text or
+coloring, converting the ``Image`` object to monochrome as shown above
+(``image.convert('1')``) will likely reduce its file size.
+   
 ``barcode_types``
 -----------------
 

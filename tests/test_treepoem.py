@@ -22,7 +22,6 @@ def test_barcode(barcode_type, barcode_data):
     actual = treepoem.generate_barcode(
         barcode_type,
         barcode_data,
-        {}
     )
 
     fixture_path = "{dirname}/fixtures/{barcode_type}.png".format(
@@ -76,7 +75,7 @@ def test_get_ghostscript_binary_windows_missing(pretend_windows):
 
 def test_unsupported_barcode_type():
     with pytest.raises(NotImplementedError) as excinfo:
-        treepoem.generate_barcode('invalid-barcode-type', '', {})
+        treepoem.generate_barcode('invalid-barcode-type', '')
     assert 'unsupported barcode type' in str(excinfo.value)
 
 def test_cli_simple(tmpdir, monkeypatch):

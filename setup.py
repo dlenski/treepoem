@@ -22,10 +22,6 @@ with codecs.open('README.rst', 'r', 'utf-8') as readme_file:
 with codecs.open('HISTORY.rst', 'r', 'utf-8') as history_file:
     history = history_file.read().replace('.. :changelog:', '')
 
-requirements = [
-    'Pillow',
-]
-
 setup(
     name='treepoem',
     version=version,
@@ -43,7 +39,10 @@ setup(
     },
     entry_points={'console_scripts': ['treepoem=treepoem.__main__:main']},
     include_package_data=True,
-    install_requires=requirements,
+    install_requires=[
+        'Pillow',
+    ],
+    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
     license="MIT",
     zip_safe=False,
     keywords='barcode bwipp postscript ghostscript qr qrcode aztec azteccode pdf417 interleaved2of5 i25 code128 code39',
