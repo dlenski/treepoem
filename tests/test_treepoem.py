@@ -78,3 +78,9 @@ def test_unsupported_barcode_type():
     with pytest.raises(NotImplementedError) as excinfo:
         treepoem.generate_barcode('invalid-barcode-type', '', {})
     assert 'unsupported barcode type' in str(excinfo.value)
+
+def test_cli_simple(tmpdir, monkeypatch):
+    monkeypatch.setattr(sys, 'argv', ['treepoem', '-o', str(tmpdir.join('test.png')), 'barcodedata'])
+    from treepoem.__main__ import main
+    main()
+    assert tmpdir.join('test.png').check(exists=True)
