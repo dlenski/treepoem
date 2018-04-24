@@ -38,4 +38,9 @@ def main():
             args.format = 'xbm'
 
     image = generate_barcode(args.type, args.data, dict(args.options))
-    image.convert('1').save(args.output, args.format)
+
+    try:
+        image.convert('1').save(args.output, args.format)
+    except KeyError as e:
+        if e.args[0] == args.format.upper():
+            parser.error('Image format %r is not supported' % args.format)
