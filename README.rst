@@ -72,7 +72,7 @@ standard PIL ``Image.save()``:
 If your barcode image is monochrome, with no additional text or
 coloring, converting the ``Image`` object to monochrome as shown above
 (``image.convert('1')``) will likely reduce its file size.
-   
+
 ``barcode_types``
 -----------------
 
@@ -106,7 +106,7 @@ of error correction (see `QR Code Options`_):
 .. code-block:: sh
 
    $ treepoem -o barcode1.png -t qrcode "This is a test" eclevel=H
-   $ treepoem -o barcode2.png -t qrcode "This is a test" eclevel=L
+   $ treepoem -o barcode2.png -t qrcode "^084his is a test" eclevel=L parse
 
 Complete usage instructions are shown with ``treepoem --help``.
 
