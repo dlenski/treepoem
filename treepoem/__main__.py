@@ -19,6 +19,7 @@ if sys.version_info < (3, 0):
 else:
     stdout_binary = sys.stdout.buffer
 
+
 def parse_opt(x):
     if '=' in x:
         return x.split('=', 1)
@@ -26,12 +27,14 @@ def parse_opt(x):
         # binary option
         return [x, True]
 
+
 parser = argparse.ArgumentParser(epilog=supported_barcode_types)
 parser.add_argument('-t', '--type', default='qrcode', help='Barcode type (default %(default)s)')
 parser.add_argument('-f', '--format', help='Output format (default is based on file extension)')
 parser.add_argument('-o', '--output', default=stdout_binary, help='Output file (default is stdout)')
 parser.add_argument('data', help='Barcode data')
 parser.add_argument('options', nargs='*', type=parse_opt, help='List of BWIPP options (e.g. width=1.5)')
+
 
 def main():
     args = parser.parse_args()
