@@ -53,3 +53,5 @@ def main():
     except KeyError as e:
         if e.args[0] == args.format.upper():
             parser.error('Image format %r is not supported' % args.format)
+        else:
+            raise
