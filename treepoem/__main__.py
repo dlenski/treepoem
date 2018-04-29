@@ -14,10 +14,10 @@ supported_barcode_types = (
 )
 
 
-if sys.version_info < (3, 0):
-    stdout_binary = sys.stdout
-else:
+try:
     stdout_binary = sys.stdout.buffer
+except AttributeError:
+    stdout_binary = sys.stdout  # Python 2
 
 
 def parse_opt(x):

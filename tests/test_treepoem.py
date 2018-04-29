@@ -8,6 +8,7 @@ import pytest
 from PIL import EpsImagePlugin, Image, ImageChops
 
 import treepoem
+from treepoem.__main__ import main
 
 
 @pytest.mark.parametrize('barcode_type,barcode_data', [
@@ -81,7 +82,6 @@ def test_unsupported_barcode_type():
 
 def test_cli_simple(tmpdir, monkeypatch):
     monkeypatch.setattr(sys, 'argv', ['treepoem', '-o', str(tmpdir.join('test.png')), 'barcodedata'])
-    from treepoem.__main__ import main
     main()
     assert tmpdir.join('test.png').check(exists=True)
 
@@ -89,7 +89,6 @@ def test_cli_simple(tmpdir, monkeypatch):
 def test_cli_unsupported_barcode_type(tmpdir, monkeypatch):
     monkeypatch.setattr(sys, 'argv', ['treepoem', '-t', 'invalid-barcode-type',
                                       '-o', str(tmpdir.join('test.png')), 'barcodedata'])
-    from treepoem.__main__ import main
     with pytest.raises(SystemExit):
         main()
     assert tmpdir.join('test.png').check(exists=False)
@@ -98,7 +97,6 @@ def test_cli_unsupported_barcode_type(tmpdir, monkeypatch):
 def test_cli_unsupported_file_format(tmpdir, monkeypatch):
     monkeypatch.setattr(sys, 'argv', ['treepoem', '-f', 'invalid-image-format',
                                       '-o', str(tmpdir.join('test.bin')), 'barcodedata'])
-    from treepoem.__main__ import main
     with pytest.raises(SystemExit):
         main()
     assert tmpdir.join('test.bin').check(exists=False)
