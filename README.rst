@@ -76,9 +76,10 @@ coloring, converting the ``Image`` object to monochrome as shown above
 ``barcode_types``
 -----------------
 
-This is a set of the ~100 names of the barcode types that the vendored version
-of BWIPP_ supports. If you're looking for whether a specific type is supported,
-check here.
+This is a ``dict`` of the ~100 names of the barcode types that the vendored version
+of BWIPP_ supports; its keys are the encoder names and the corresponding values are
+the human-readable descriptions. If you're looking for whether a specific type is
+supported, check here.
 
 The library is tested with these specific, common types:
 

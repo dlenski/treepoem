@@ -10,6 +10,8 @@ History
   performance improvements. You can read its changelog in the vendored copy in
   the `treepoem repo
   <https://github.com/adamchainz/treepoem/blob/master/treepoem/postscriptbarcode/CHANGES>`__.
+* Make ``treepoem.barcode_types`` a ``dict`` mapping the BWIPP encoder
+  names to the human-readable names of supported barcode types.
 
 1.4.1 (2018-05-01)
 ------------------
