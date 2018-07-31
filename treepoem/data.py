@@ -1,10 +1,12 @@
 # -*- encoding:utf-8 -*-
 from __future__ import absolute_import, division, print_function, unicode_literals
 
+
 class BarcodeType:
     def __init__(self, type_code, description):
         self.type_code = type_code
         self.description = description
+
 
 # All supported barcode types, extracted from barcode.ps
 barcode_types = {
